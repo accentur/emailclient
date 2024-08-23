@@ -21,6 +21,9 @@ export class SigupComponent {
     Validators.pattern(/^[a-z0-9]+$/)], [this.uniqueUserName.validate]),
     password: new FormControl('',[Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
      passwordConfirmation: new FormControl('',[Validators.required, Validators.minLength(3),Validators.maxLength(20)])
-  }, { validators:[this.matchPassword.validate]});
-
+  }, { validators: [this.matchPassword.validate] });
+  
+   usernameControl = this.authForm.get('username') as FormControl;
+  passwordControl = this.authForm.get('password') as FormControl;
+  passwordConfirmationControl=this.authForm.get('passwordConfirmation') as FormControl;
 }
