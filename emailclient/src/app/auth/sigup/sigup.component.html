@@ -4,14 +4,22 @@
     <label>Username</label>
     <input formControlName="username" />
   </div> -->
-  <app-input label="Username" [control]="usernameControl"></app-input>
+  <app-input
+    [inputType]="'text'"
+    label="Username"
+    [control]="usernameControl"
+  ></app-input>
   <!-- TBI-->
   {{ authForm.get("username")?.errors | json }}
   <!-- <div class="field">
     <label>Password</label>
     <input formControlName="password" />
   </div> -->
-  <app-input label="Password" [control]="passwordControl"></app-input>
+  <app-input
+    label="Password"
+    [control]="passwordControl"
+    [inputType]="'password'"
+  ></app-input>
   {{ authForm.get("password")?.errors | json }}
   <!-- <div class="field">
     <label>Confirm Password</label>
@@ -19,6 +27,7 @@
     <input formControlName="passwordConfirmation" />
   </div> -->
   <app-input
+    [inputType]="'password'"
     label="Confirm Password"
     [control]="passwordConfirmationControl"
   ></app-input>
@@ -26,5 +35,12 @@
 
   <button class="ui submit button primary">Submit</button>
 
-  {{ authForm.errors | json }}
+  <!-- {{ authForm.errors | json }} -->
+  <br />
+  <div
+    class="ui pointing red basic label"
+    *ngIf="authForm.errors && authForm.errors['passwordNotMatch']"
+  >
+    Password not matching !
+  </div>
 </form>
