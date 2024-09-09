@@ -6,14 +6,42 @@ import { MatchPassword } from '../validators/match-password';
 
 import { UniqueUserName } from '../validators/unique-user-name';
 
+import { AuthService } from '../auth.service';
+
 @Component({
   selector: 'app-sigup',
   templateUrl: './sigup.component.html',
   styleUrls: ['./sigup.component.css']
 })
 export class SigupComponent {
+  onSubmit() {
+  
+    if (this.authForm.invalid) {
+      
+      return;
+    }
 
-  constructor(private matchPassword:MatchPassword, private uniqueUserName:UniqueUserName){}
+    this.auth.signup(this.authForm.value).subscribe({
+      
+      next:response=> { 
+      
+        // Navigate to some other route
+
+
+      }, error: (err) => { 
+        
+        if (!err.status) {
+           
+          this.authForm.setErrors({noNetwork:true});
+         }
+      }
+      
+    });
+
+
+}
+
+  constructor(private matchPassword:MatchPassword, private uniqueUserName:UniqueUserName, private auth:AuthService){}
 
   authForm = new FormGroup({
 
