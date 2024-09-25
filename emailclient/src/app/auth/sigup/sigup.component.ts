@@ -17,6 +17,8 @@ export class SigupComponent {
   onSubmit() {
   
     if (this.authForm.invalid) {
+
+      alert("I am Invalid");
       
       return;
     }
@@ -24,7 +26,7 @@ export class SigupComponent {
     this.auth.signup(this.authForm.value).subscribe({
       
       next:response=> { 
-      
+       
         // Navigate to some other route
 
 

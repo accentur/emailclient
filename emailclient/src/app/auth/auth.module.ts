@@ -7,12 +7,14 @@ import { SigninComponent } from './signin/signin.component';
 import { SigupComponent } from './sigup/sigup.component';
 
 import { SharedModule } from '../shared/shared.module';
+import { SignoutgComponent } from './signoutg/signoutg.component';
 
 
 @NgModule({
   declarations: [
     SigninComponent,
-    SigupComponent
+    SigupComponent,
+    SignoutgComponent
   ],
   imports: [
     CommonModule,
