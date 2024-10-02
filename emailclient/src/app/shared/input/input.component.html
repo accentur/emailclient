@@ -1,5 +1,5 @@
 <div class="field">
-  <label>{{ label }}</label>
+  <label [style.color]="'brown'">{{ label }}</label>
   <input [formControl]="control" [type]="inputType" />
 
   <div *ngIf="showerrors()" class="ui pointing red basic label">

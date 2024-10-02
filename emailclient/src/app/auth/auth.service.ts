@@ -16,6 +16,12 @@ interface SignUpCredentials{
   passwordConfirmation?: string;
 }
 
+interface SignInCredential{
+
+  username?: string;
+  password?: string;
+}
+
 interface SignUpResponse{
 
   username: string;
@@ -27,6 +33,7 @@ interface SignUpResponse{
 })
 export class AuthService {
 
+ 
   rootUrl: string = 'https://api.angular-email.com';
   signed$ = new BehaviorSubject(false);
 
@@ -72,7 +79,20 @@ export class AuthService {
         })
     )
    
- }
+  }
+  
+  signin(signin: SignInCredential) {
+     
+    return this.http.post(`${this.rootUrl}/auth/signin`, signin).pipe(
+      
+      tap(() => {
+        
+        this.signed$.next(true);
+      })
+    )
+    
+  }
+
 }
 
 
