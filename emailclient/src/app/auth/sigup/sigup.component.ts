@@ -8,6 +8,8 @@ import { UniqueUserName } from '../validators/unique-user-name';
 
 import { AuthService } from '../auth.service';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-sigup',
   templateUrl: './sigup.component.html',
@@ -27,7 +29,7 @@ export class SigupComponent {
       
       next:response=> { 
        
-        // Navigate to some other route
+        this.route.navigateByUrl('/inbox');
 
 
       }, error: (err) => { 
@@ -43,7 +45,7 @@ export class SigupComponent {
 
 }
 
-  constructor(private matchPassword:MatchPassword, private uniqueUserName:UniqueUserName, private auth:AuthService){}
+  constructor(private matchPassword:MatchPassword, private uniqueUserName:UniqueUserName, private auth:AuthService , private route:Router){}
 
   authForm = new FormGroup({
 

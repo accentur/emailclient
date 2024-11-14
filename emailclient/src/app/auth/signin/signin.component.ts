@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -10,7 +12,7 @@ import { AuthService } from '../auth.service';
 })
 export class SigninComponent implements OnInit{
 
-  constructor(private authService:AuthService) {
+  constructor(private authService:AuthService , private router:Router) {
    
 
  }
@@ -40,6 +42,7 @@ export class SigninComponent implements OnInit{
 
       next: () => {
         
+        this.router.navigateByUrl('/inbox');
 
       },
 

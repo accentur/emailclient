@@ -35,7 +35,7 @@ export class AuthService {
 
  
   rootUrl: string = 'https://api.angular-email.com';
-  signed$ = new BehaviorSubject(false);
+  signed$ = new BehaviorSubject(null);
 
   constructor(private http: HttpClient) { }
   
