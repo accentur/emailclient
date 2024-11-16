@@ -5,4 +5,8 @@
     <div>To : {{ email.to }}</div>
     <div>Text : {{ email.text }}</div>
   </div>
+  <div>
+    <app-email-reply [email]="email"></app-email-reply>
+  </div>
+  <div [innerHTML]="email.html"></div>
 </div>

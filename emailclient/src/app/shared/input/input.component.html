@@ -1,6 +1,13 @@
 <div class="field">
   <label [style.color]="'brown'">{{ label }}</label>
-  <input [formControl]="control" [type]="inputType" />
+  <input
+    *ngIf="controlType === 'input'"
+    [formControl]="control"
+    [type]="inputType"
+  />
+
+  <textarea *ngIf="controlType === 'textarea'" [formControl]="control">
+  </textarea>
 
   <div *ngIf="showerrors()" class="ui pointing red basic label">
     <p *ngIf="control.errors['required']">Value is required !</p>
@@ -11,6 +18,7 @@
       Required : {{ control.errors["minlength"].requiredLength }}
       Required:
     </p>
+    <p ngIf="control.errors['email']">Input valid email !</p>
     <P *ngIf="control.errors['pattern']"> Invalid Pattern!</P>
     <P *ngIf="control.errors['nonUniqueName']"> Unique name taken!</P>
     <P *ngIf="control.errors['noNetwork']"> Network Issue</P>

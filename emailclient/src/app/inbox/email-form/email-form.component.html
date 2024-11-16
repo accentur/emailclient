@@ -1,0 +1,19 @@
+<form class="ui form" [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+  <app-input [control]="tocontrolName" inputType="email" label="To"></app-input>
+  <app-input
+    [control]="fromcontrolName"
+    inputType="email"
+    label="From"
+  ></app-input>
+  <app-input
+    [control]="subcontrolName"
+    inputType="text"
+    label="Subject"
+  ></app-input>
+  <app-input
+    [control]="textcontrolName"
+    controlType="textarea"
+    label="Content"
+  ></app-input>
+  <button class="ui button primary">Send</button>
+</form>
